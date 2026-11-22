@@ -1,6 +1,6 @@
 # Monet demonstration
 
-The [finished demonstration](Frame-Echo-Demo-Monet.mp4) runs for 2:31 with English subtitles and no audio.
+The [finished demonstration](Frame-Echo-Demo-Monet.mp4) runs for 2:41 with English subtitles
 
 ## Replay the search
 
