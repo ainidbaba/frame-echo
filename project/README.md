@@ -74,6 +74,3 @@ python -m unittest discover -s tests -v
 ```
 
 The API tests start a local test server. The repository includes the web interface, server, tests, synthetic fixture and development scripts. Some historical experiment scripts require their original research inputs. The [process log](docs/process-log.md) records those experiments and their settings.
-
-
-The API tests start a local test server. The repository includes the web interface, server, tests, synthetic fixture and development scripts. Some historical experiment scripts require their original research inputs. The [process log](docs/process-log.md) records those experiments and their settings.
