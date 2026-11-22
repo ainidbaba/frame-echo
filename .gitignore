@@ -1,0 +1,27 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.env
+.env.*
+data/runtime/
+data/raw/
+data/private/
+data/models/
+*.log
+coverage.xml
+.coverage
+htmlcov/
+data/pilots/
+
+# Local application and research files under project/
+/project/data/runtime/
+/project/data/raw/
+/project/data/private/
+/project/data/models/
+/project/data/pilots/
+/project/data/evaluation/
