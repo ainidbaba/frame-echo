@@ -5,7 +5,7 @@ Frame Echo takes an artwork as a visual reference and finds potentially similar 
 | Submission component | File |
 | --- | --- |
 | Source code and setup | [Project and running instructions](project/README.md) |
-| Demonstration | [Frame Echo — Monet demonstration](Frame-Echo-Demo-Monet.mp4), 2:41 with English subtitles |
+| Demonstration | [Frame Echo — Monet demonstration](demo/Frame-Echo-Demo-Monet.mp4), 2:41 with English subtitles |
 | Written thesis | [Frame Echo thesis](thesis/Frame-Echo-Thesis.pdf) |
 | Development | [Process log (Markdown)](project/docs/process-log.md), [Process log (PDF)](project/docs/Frame-Echo-Process-Log.pdf) |
 
