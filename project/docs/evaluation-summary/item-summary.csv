@@ -1,0 +1,55 @@
+﻿candidate_id,artwork_id,artwork_title,video_id,timestamp_seconds,assigned_method,actual_top1_method_membership,rating_rows,colour_mean,colour_median,composition_mean,composition_median,content_mean,content_median,overall_mean,overall_median,connection_yes,connection_no,connection_unsure,connection_missing
+C6cca251a0de3,A43,Music and Dance,V04,15.0,clip,clip,2,2.5,2.5,2,2.0,2.5,2.5,2,2.0,1,1,0,0
+C4c711d2c9936,A07,Chinese Literatus in an Autumn Landscape,V04,14.0,clip,clip,2,2,2.0,2,2.0,1.5,1.5,1.5,1.5,1,1,0,0
+Ce65160f1effc,A28,Still Life,V05,219.0,colour,colour,2,4.5,4.5,2,2.0,1,1.0,2,2.0,1,0,1,0
+C839602deadc2,A28,Still Life,V04,10.0,colour,colour,2,1,1.0,2,2.0,1,1.0,1.5,1.5,0,1,1,0
+C106248ebc065,A43,Music and Dance,V04,10.0,colour,colour,2,2,2.0,1.5,1.5,1.5,1.5,1.5,1.5,0,2,0,0
+C6d771d00221b,A43,Music and Dance,V05,144.0,clip,clip,2,1.5,1.5,1,1.0,1,1.0,1.5,1.5,0,2,0,0
+C44d0ca086ac4,A07,Chinese Literatus in an Autumn Landscape,V05,220.0,colour,colour,2,3.5,3.5,1,1.0,1.5,1.5,1.5,1.5,1,1,0,0
+Cb22f8084fc96,A28,Still Life,V05,74.0,clip,clip,3,3.3333333333333335,4,2,1,1.3333333333333333,1,2,2,0,1,2,0
+C34c147aaed9a,A28,Still Life,V04,0.0,clip,clip,2,1.5,1.5,1,1.0,1,1.0,1.5,1.5,0,2,0,0
+C2c0869b1001c,A54,The Cathedral,V05,219.0,colour,colour,2,4.5,4.5,2.5,2.5,1.5,1.5,2.5,2.5,2,0,0,0
+C367620a27ca0,A54,The Cathedral,V04,7.0,clip,clip,2,1.5,1.5,3,3.0,1.5,1.5,1.5,1.5,0,2,0,0
+C7f31029e1073,A43,Music and Dance,V05,219.0,colour,colour,2,4,4.0,1.5,1.5,1,1.0,1.5,1.5,0,0,2,0
+C75a3b4f9bc45,A07,Chinese Literatus in an Autumn Landscape,V05,219.0,clip,clip,2,4,4.0,2,2.0,1.5,1.5,2.5,2.5,1,1,0,0
+Cf3c86f6038df,A54,The Cathedral,V05,301.0,clip,clip,2,3,3.0,3,3.0,1.5,1.5,2,2.0,0,0,2,0
+C86a5cc946f13,A18,Catherine Greene,V04,7.0,clip,clip,2,4,4.0,3.5,3.5,1,1.0,2,2.0,1,0,1,0
+Cb139db5fce4e,A54,The Cathedral,V04,12.0,colour,colour,2,2.5,2.5,2.5,2.5,1,1.0,1.5,1.5,0,2,0,0
+C978c4fd05695,A18,Catherine Greene,V05,231.0,colour,colour,2,4,4.0,2,2.0,1,1.0,2,2.0,0,1,1,0
+C916bab7233a4,A18,Catherine Greene,V05,144.0,clip,clip,2,3,3.0,2,2.0,3.5,3.5,2.5,2.5,1,1,0,0
+C9f724d211acf,A07,Chinese Literatus in an Autumn Landscape,V04,7.0,colour,colour,2,2,2.0,1.5,1.5,1.5,1.5,1.5,1.5,0,2,0,0
+C017ebb0643fe,A18,Catherine Greene,V04,16.0,colour,colour,2,3.5,3.5,1.5,1.5,1,1.0,2,2.0,0,1,1,0
+Cd46f7987565a,A14,Coastal Landscape,V05,269.0,colour,colour,1,3,3,2,2,2,2,2,2,0,1,0,0
+C2d33635c68b7,A96,The Ruin of Huis 't Sant at Katwijk aan Zee,V04,2.0,clip,clip,1,2,2,4,4,5,5,4,4,1,0,0,0
+Cd9cf82186add,A91,Landscape with Flying Geese,V04,7.0,clip,colour;clip,1,4,4,2,2,1,1,2,2,0,0,1,0
+C6064e325ae5b,A56,Mountain and River in Storm,V05,257.0,clip,clip,1,2,2,2,2,2,2,2,2,0,1,0,0
+C6ae22b5af6cf,A81,Mother Lifting a Child to a Plum Tree (from the series Chinese and Japanese Poems by Seven Year Old Girls of Recent Times),V05,219.0,colour,colour,1,4,4,2,2,1,1,2,2,0,0,1,0
+C0015b7c16873,A84,"Sunset Glow over a Fishing Village, from Eight Views of Xiao-Xiang",V04,7.0,colour,colour,1,4,4,3,3,2,2,2,2,0,0,1,0
+Cc34b9423f192,A80,Net Fishing at Night on the Sumida River,V04,10.0,clip;colour,colour;clip,2,2.5,2.5,2,2.0,2,2.0,2,2.0,0,1,1,0
+C2e62295a9fa4,A05,A Maid Asleep,V04,13.0,colour,colour,1,2,2,3,3,2,2,3,3,0,0,1,0
+Cac0c3cd64fa8,A41,Game of Backgammon,V05,220.0,colour,colour,1,4,4,2,2,2,2,2,2,0,0,1,0
+C5885f418a1f3,A66,Bamboo and Plum,V04,7.0,clip,clip,1,3,3,2,2,3,3,3,3,1,0,0,0
+Cc50d7ffae8c4,A73,Birds and Flowers,V05,27.0,clip,clip,1,4,4,2,2,2,2,2,2,0,0,1,0
+C1c9592c57ff3,A89,Carrying a Qin on a Visit,V05,220.0,colour,colour,1,4,4,4,4,1,1,3,3,1,0,0,0
+C9026cfd19fea,A73,Birds and Flowers,V05,219.0,colour,colour,1,4,4,3,3,2,2,2,2,0,0,1,0
+C0359c124952b,A74,"The Derelict, or the Lost Boat",V04,7.0,clip,clip,1,3,3,3,3,1,1,2,2,0,0,1,0
+Ce2ab538f95d4,A27,Virgin and Child with Angels,V05,188.0,clip,clip,1,1,1,1,1,1,1,1,1,0,1,0,0
+C55bd40f5a008,A21,Self-Portrait,V05,145.0,clip,clip,1,1,1,1,1,3,3,2,2,0,0,1,0
+Cc85528070f80,A14,Coastal Landscape,V05,257.0,clip,clip,1,2,2,2,2,2,2,3,3,0,1,0,0
+Cf48c905762e2,A09,Landscape with Motifs from the Eight Views of Xiao-Xiang,V04,2.0,clip,clip,1,2,2,3,3,4,4,3,3,1,0,0,0
+C86ae98f5f184,A16,Bodhidharma,V05,219.0,colour,colour,1,4,4,2,2,1,1,2,2,0,0,1,0
+C4c01334d6bac,A96,The Ruin of Huis 't Sant at Katwijk aan Zee,V04,12.0,colour,colour,1,1,1,1,1,1,1,1,1,0,1,0,0
+C76934b9c0378,A88,Landscapes,V04,10.0,colour,colour,1,4,4,2,2,2,2,2,2,0,0,1,0
+C9c0cbaeb878b,A99,Nudes in a Landscape,V04,10.0,colour,colour,1,3,3,2,2,1,1,2,2,0,0,1,0
+Cd9e7536ebf1a,S04,Mount Sainte-Victoire,V01,37.022133333333336,colour,colour,3,3.3333333333333335,3,1.3333333333333333,1,1,1,1.6666666666666667,2,0,3,0,0
+C1b54efc3d960,S03,The Large Plane Trees (Road Menders at Saint-Rémy),V03,39.000033333333334,clip,clip,3,3,3,4.333333333333333,4,4,4,3.6666666666666665,4,3,0,0,0
+C4118f75e42f0,S07,Fight Between a Tiger and a Buffalo,V02,110.01650000000001,clip,clip,3,2,2,2.6666666666666665,3,1.3333333333333333,1,1.6666666666666667,2,0,2,1,0
+Cf1a63cc58170,S05,Saint-Tropez:  The Port,V05,141.0,clip,clip,3,1,1,1,1,1,1,1,1,0,3,0,0
+Cd5d560d07f1f,S12,"Composition with Red, Yellow, and Blue",V04,16.0,colour,colour,3,2,2,1.6666666666666667,2,1,1,1.3333333333333333,1,0,3,0,0
+C33b6b38a9b00,S06,At the Concert Parisien,V04,12.0,colour,colour,3,2,2,3.3333333333333335,3,1.3333333333333333,1,2,2,1,1,1,0
+C323d1d60e89c,S10,Night Café,V05,139.0,clip,clip,3,1.3333333333333333,1,1,1,1.3333333333333333,1,1,1,0,3,0,0
+C7402b8311d02,S11,God of War,V01,78.022,clip,colour;clip,3,2.3333333333333335,3,1,1,1.6666666666666667,2,1.6666666666666667,2,0,3,0,0
+Cbdf16caecdba,S01,Villas at Trouville,V03,110.00013333333334,colour,colour,3,3.3333333333333335,3,1.3333333333333333,1,1.3333333333333333,1,1,1,0,1,2,0
+C1246b3a24b2f,S08,"Evening, Melancholy I",V05,220.0,colour,colour,3,3.6666666666666665,4,1,1,1,1,2,2,0,1,2,0
+Cccc8e0ac1e9b,S02,Water Lilies (Agapanthus),V04,5.0,clip,clip,3,1.3333333333333333,1,1.3333333333333333,1,1.3333333333333333,1,1.3333333333333333,1,0,3,0,0
+Cb05e3508a243,S09,Marcelle la Blonde,V02,84.03320000000001,colour,colour,3,3.3333333333333335,3,1.6666666666666667,2,1.3333333333333333,1,1.6666666666666667,2,0,3,0,0

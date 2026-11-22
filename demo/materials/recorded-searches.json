@@ -1,0 +1,90 @@
+{
+  "launches": [
+    {
+      "settings": {
+        "interval": 0.5,
+        "top_k": 5,
+        "min_gap": 1.5,
+        "method": "clip",
+        "min_score": null
+      },
+      "framesTotal": 18,
+      "matchCount": 5,
+      "timestamps": [
+        5,
+        3.5000000000000004,
+        1.5,
+        8.5,
+        0
+      ],
+      "scores": [
+        0.550738480571912,
+        0.42091069352848803,
+        0.39251238571316277,
+        0.32751070116563924,
+        0.3009298289426853
+      ]
+    },
+    {
+      "settings": {
+        "interval": 0.5,
+        "top_k": 5,
+        "min_gap": 1.5,
+        "method": "clip",
+        "min_score": 0.5
+      },
+      "framesTotal": 18,
+      "matchCount": 1,
+      "timestamps": [
+        5
+      ],
+      "scores": [
+        0.550738480571912
+      ]
+    },
+    {
+      "settings": {
+        "interval": 0.5,
+        "top_k": 5,
+        "min_gap": 1.5,
+        "method": "clip",
+        "min_score": 0.6
+      },
+      "framesTotal": 18,
+      "matchCount": 0,
+      "timestamps": [],
+      "scores": []
+    },
+    {
+      "settings": {
+        "interval": 0.5,
+        "top_k": 5,
+        "min_gap": 1.5,
+        "method": "colour",
+        "min_score": null
+      },
+      "framesTotal": 18,
+      "matchCount": 5,
+      "timestamps": [
+        8.5,
+        6,
+        4.5,
+        0.5,
+        3
+      ],
+      "scores": [
+        0.4355844511387846,
+        0.42486821957722953,
+        0.3001686228510591,
+        0.18851073473596852,
+        0.18594925653157324
+      ]
+    }
+  ],
+  "timestamp_playback_seconds": {
+    "target": 5,
+    "start": 5.015958,
+    "end": 8.566667,
+    "duration": 8.566667
+  }
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f2e9" />
+    <meta name="description" content="Explore the visual connections between an artwork and your own video footage." />
+    <title>Frame Echo — Art meets your footage</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Frame Echo home"><span class="brand-mark" aria-hidden="true"><i></i></span><span>frame echo<span class="brand-dot">.</span></span></a>
+      <div class="header-right"><span class="edition">An art-led way of looking</span><span class="local-status"><span aria-hidden="true"></span>Local workspace</span></div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy"><p class="eyebrow"><span class="tiny-cross" aria-hidden="true">✳</span> ARTWORK → MOVING IMAGE</p><h1 id="page-title">Find echoes of art<br />in your <em>own footage.</em></h1><p class="hero-description">A painting. A museum visit. A moment outside.<br class="desktop-break" /> Discover the visual connections hiding in your videos.</p></div>
+        <div class="hero-aside"><span class="hero-number" aria-hidden="true">01—03</span><p>Choose an artwork.<br />Bring your footage.<br />See what resonates.</p><button id="demo-button" class="text-button" type="button" disabled>Try a synthetic demo <span aria-hidden="true">↗</span></button><small>No footage yet? Explore a generated test sample.</small></div>
+      </section>
+
+      <section id="workspace" class="workspace" aria-labelledby="workspace-heading">
+        <aside class="source-panel">
+          <div class="section-heading"><span class="step-index">01</span><h2 id="workspace-heading">Set the scene</h2></div>
+          <form id="retrieval-form" novalidate>
+            <fieldset id="source-fieldset">
+              <legend class="visually-hidden">Source files and search settings</legend>
+              <div class="input-heading"><label for="art-file">The artwork</label><span>YOUR VISUAL REFERENCE</span></div>
+              <label class="drop-zone artwork-drop" id="art-drop" for="art-file" tabindex="0" role="button" aria-label="Choose an artwork image">
+                <input class="visually-hidden" id="art-file" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,image/tiff" />
+                <div id="art-drop-placeholder" class="drop-placeholder"><span class="upload-icon art-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="5" y="4" width="22" height="24" rx="1"/><circle cx="12" cy="11" r="2"/><path d="m7 24 7-9 4 5 3-4 4 8"/></svg></span><strong>Drop your artwork here</strong><span>or click to choose an image</span><small id="image-limit-label">JPG, PNG or WebP · up to 20 MB</small></div>
+                <img id="art-upload-preview" class="art-upload-preview" alt="Selected reference artwork" hidden />
+                <span class="change-file" id="art-change-label" hidden>Change artwork <span aria-hidden="true">↗</span></span>
+              </label>
+              <p class="selected-file" id="art-file-label" hidden></p>
+
+              <div class="input-heading video-input-heading"><label for="video-file">The footage</label><span>YOUR VIDEO ARCHIVE</span></div>
+              <label class="drop-zone video-drop" id="video-drop" for="video-file" tabindex="0" role="button" aria-label="Choose a video">
+                <input class="visually-hidden" id="video-file" type="file" accept=".mp4,.mov,.m4v,.webm,.avi,.mkv" />
+                <span class="upload-icon video-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="7" width="24" height="18" rx="1"/><path d="m13 12 7 4-7 4z"/></svg></span>
+                <div><strong id="video-drop-title">Drop your video here</strong><span id="video-drop-subtitle">or click to browse your files</span></div><span class="file-plus" aria-hidden="true">+</span>
+              </label>
+              <p class="file-hint" id="video-limit-label">MP4 or MOV recommended · up to 500 MB</p>
+
+              <div class="settings-section">
+                <div class="input-heading"><label for="method-select">How to look</label><span>RETRIEVAL METHOD</span></div>
+                <select id="method-select" name="method" aria-describedby="method-description" disabled><option value="colour">Loading available methods…</option></select>
+                <p class="setting-description" id="method-description">Checking the local workspace.</p>
+                <div class="parameter-grid">
+                  <div><label for="interval-input">Sample every</label><div class="number-input"><input id="interval-input" name="interval" type="number" min="0.25" max="10" step="0.25" value="1" inputmode="decimal" /><span>sec</span></div></div>
+                  <div><label for="top-k-input">Show results</label><div class="number-input"><input id="top-k-input" name="top_k" type="number" min="1" max="20" step="1" value="6" inputmode="numeric" /><span>frames</span></div></div>
+                </div>
+                <div class="gap-setting"><label for="min-gap-input">Space matches apart</label><div class="number-input"><input id="min-gap-input" name="min_gap" type="number" min="0" max="60" step="0.5" value="3" inputmode="decimal" /><span>sec</span></div></div>
+                <p class="setting-description spacing-description">Keep nearby moments from filling every result.</p>
+                <div class="threshold-setting">
+                  <label for="min-score-input">Minimum similarity <span>OPTIONAL</span></label>
+                  <input id="min-score-input" name="min_score" type="number" min="-1" max="1" step="any" inputmode="decimal" placeholder="Leave blank to disable" aria-describedby="min-score-description" />
+                  <p class="setting-description" id="min-score-description">Set separately for each method. Leave blank to disable; scores are not probabilities.</p>
+                </div>
+              </div>
+            </fieldset>
+            <button id="search-button" class="primary-button" type="submit" disabled><span>Find visual echoes</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <p id="ready-hint" class="ready-hint">Add an artwork and a video to begin.</p>
+          </form>
+          <p class="privacy-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="1"/><path d="M5.5 7V4.5a2.5 2.5 0 0 1 5 0V7"/></svg>Your files are processed in this local workspace.</p>
+        </aside>
+
+        <section class="discovery-panel" aria-labelledby="discovery-heading">
+          <div class="discovery-header"><div class="section-heading"><span class="step-index">02</span><h2 id="discovery-heading">Discover the connection</h2></div><span class="workspace-badge" id="workspace-badge">AWAITING YOUR FOOTAGE</span></div>
+          <div id="error-panel" class="error-panel" role="alert" hidden><span aria-hidden="true">!</span><div><strong id="error-title">Something needs a second look</strong><p id="error-message"></p></div><button id="dismiss-error" class="icon-button" type="button" aria-label="Dismiss error">×</button></div>
+          <div id="progress-panel" class="progress-panel" role="status" aria-live="polite" hidden><div class="progress-label"><span class="processing-indicator" aria-hidden="true"></span><strong id="progress-stage">Preparing your search</strong><span id="progress-value"></span></div><div class="progress-track"><div id="progress-bar" class="progress-bar indeterminate"></div></div><p id="progress-message">Your frames will appear here when the search is ready.</p></div>
+
+          <div id="empty-state" class="empty-state">
+            <div class="empty-art" aria-hidden="true"><div class="empty-art-grid"></div><div class="empty-frame empty-frame-back"><div class="empty-arch"></div><div class="empty-orb"></div><div class="empty-horizon"></div></div><div class="empty-frame empty-frame-front"><span class="small-sun"></span><span class="small-hill"></span></div><span class="empty-spark">✳</span><span class="empty-caption">A NEW WAY TO REVISIT</span></div>
+            <p class="empty-eyebrow">EVERYDAY MOMENTS, ANOTHER PERSPECTIVE</p><h3>Your footage has<br /><em>more to reveal.</em></h3><p>Bring an artwork and a video together.<br />We’ll find the frames that visually resonate.</p>
+            <div class="empty-steps"><span><b>01</b> Reference</span><i aria-hidden="true">→</i><span><b>02</b> Compare</span><i aria-hidden="true">→</i><span><b>03</b> Rediscover</span></div>
+          </div>
+
+          <div id="results-state" class="results-state" hidden>
+            <div id="synthetic-notice" class="synthetic-notice" hidden><span class="mini-pill">SYNTHETIC DEMO</span><p>Generated test imagery demonstrates the workflow. These are not research findings.</p></div>
+            <div class="viewing-room">
+              <figure class="reference-view"><div class="viewer-label"><span>THE REFERENCE</span><span aria-hidden="true">↙</span></div><div class="reference-image-wrap"><img id="reference-image" alt="Artwork used as the visual reference for this search" /></div><figcaption id="reference-name"></figcaption></figure>
+              <div class="video-view"><div class="viewer-label"><span id="selected-moment-label">THE SELECTED MOMENT</span><span id="selected-timestamp">—</span></div><div class="video-image-wrap"><video id="video-player" controls playsinline preload="metadata" aria-label="Source video"></video></div><div class="video-caption"><span id="video-name"></span><span id="video-duration"></span></div></div>
+            </div>
+            <div class="results-heading"><div><p class="eyebrow">03 / VISUAL ECHOES</p><h3><span id="results-title">Moments that resonate</span><span class="result-count" id="result-count"></span></h3></div><div class="export-actions"><a id="export-link" class="export-link" href="#" download><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2v10m-4-4 4 4 4-4M3 12v5h14v-5"/></svg>Export CSV</a><a id="metadata-link" class="export-link" href="#" download>Save search record · JSON</a></div></div>
+            <p id="results-summary" class="results-summary"></p>
+            <div id="results-grid" class="results-grid" aria-label="Ranked matching video frames"></div>
+            <div id="no-matches" class="no-matches" role="status" aria-live="polite" hidden><p id="no-matches-description">No frames meet the current search settings for this video.</p><p class="no-matches-help">Try another reference or video, or review the selected method’s minimum score. You can save this search record, including its settings and empty result.</p></div>
+            <p class="score-note"><span aria-hidden="true">↳</span> Similarity scores describe this method’s visual match. They are not probabilities or aesthetic ratings.</p>
+          </div>
+        </section>
+      </section>
+      <footer class="site-footer"><span>FRAME ECHO <span aria-hidden="true">/</span> A creative computing research prototype</span><span>Look closer. Find a connection.</span></footer>
+    </main>
+    <div id="announcement" class="visually-hidden" role="status" aria-live="polite"></div>
+  </body>
+</html>

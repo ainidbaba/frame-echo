@@ -1,0 +1,125 @@
+"""Timestamp-aware local video sampling. No external services are used."""
+
+from __future__ import annotations
+
+import math
+from pathlib import Path
+from typing import Callable
+
+import cv2
+from PIL import Image
+
+MAX_SAMPLED_FRAMES = 4000
+
+
+def timestamp_label(seconds: float) -> str:
+    milliseconds = round(seconds * 1000)
+    hours, remainder = divmod(milliseconds, 3_600_000)
+    minutes, remainder = divmod(remainder, 60_000)
+    whole_seconds, milliseconds = divmod(remainder, 1000)
+    prefix = f"{hours:02d}:" if hours else ""
+    return f"{prefix}{minutes:02d}:{whole_seconds:02d}.{milliseconds:03d}"
+
+
+def probe_video(path: Path) -> dict:
+    capture = cv2.VideoCapture(str(path))
+    try:
+        if not capture.isOpened():
+            raise ValueError("This video could not be opened. Please try an MP4 with H.264 video.")
+        fps = float(capture.get(cv2.CAP_PROP_FPS))
+        raw_count = float(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+        raw_width = float(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
+        raw_height = float(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        if any(not math.isfinite(value) or value <= 0 for value in (fps, raw_count, raw_width, raw_height)):
+            raise ValueError("The video has no readable frame timing or dimensions. Try re-exporting it as MP4.")
+        count, width, height = int(raw_count), int(raw_width), int(raw_height)
+        if count < 1 or width < 1 or height < 1:
+            raise ValueError("The video has no readable frame timing or dimensions. Try re-exporting it as MP4.")
+        return {
+            "duration": count / fps,
+            "duration_source": "frame_count_divided_by_fps_estimate",
+            "fps": fps, "width": width, "height": height, "frame_count": count,
+        }
+    finally:
+        capture.release()
+
+
+def extract_frames(
+    path: Path,
+    output_dir: Path,
+    interval: float,
+    on_progress: Callable[[float, int], None] | None = None,
+) -> tuple[dict, list[dict]]:
+    """Decode in sequence, preserving presentation timestamps where available.
+
+    Decoding every frame avoids approximate keyframe seeking. If timestamps are
+    invalid or stop advancing, the whole video is sampled again using frame
+    index / declared FPS. A run never mixes the two time axes. The fallback is
+    reported in run metadata and CSV. Duration is an estimate from declared frame
+    count / FPS, particularly relevant for variable-rate footage.
+    """
+    if not math.isfinite(interval) or interval <= 0:
+        raise ValueError("Sampling interval must be a positive finite number.")
+    info = probe_video(path)
+    if math.ceil(info["duration"] / interval) > MAX_SAMPLED_FRAMES:
+        raise ValueError(f"This setting would sample over {MAX_SAMPLED_FRAMES:,} frames. Choose a longer interval or a shorter clip.")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    # There are at most two sequential passes: PTS first, then a complete FPS
+    # fallback if needed. This avoids incomplete coverage from mixing time axes.
+    for use_fps in (False, True):
+        capture = cv2.VideoCapture(str(path))
+        frames: list[dict] = []
+        next_sample = 0.0
+        previous_timestamp = -1.0
+        index = 0
+        restart_with_fps = False
+        last_timestamp = 0.0
+        try:
+            if not capture.isOpened():
+                raise ValueError("The video could not be reopened for frame sampling.")
+            while True:
+                ok, bgr = capture.read()
+                if not ok:
+                    break
+                timestamp = index / info["fps"] if use_fps else float(capture.get(cv2.CAP_PROP_POS_MSEC)) / 1000.0
+                if not use_fps and (
+                    not math.isfinite(timestamp) or timestamp < 0
+                    or (index > 0 and timestamp <= previous_timestamp)
+                ):
+                    restart_with_fps = True
+                    break
+                previous_timestamp = timestamp
+                last_timestamp = timestamp
+                if timestamp + 1e-6 >= next_sample:
+                    if len(frames) >= MAX_SAMPLED_FRAMES:
+                        raise ValueError("The video exceeds the sampling limit. Choose a longer interval.")
+                    rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+                    with Image.fromarray(rgb) as image:
+                        image.thumbnail((1280, 1280), Image.Resampling.LANCZOS)
+                        frame_path = output_dir / f"frame_{len(frames):05d}.jpg"
+                        image.save(frame_path, quality=92)
+                    frames.append({"path": frame_path, "timestamp": timestamp})
+                    next_sample = (math.floor((timestamp + 1e-6) / interval) + 1) * interval
+                    if on_progress:
+                        on_progress(min(timestamp / info["duration"], 0.99), len(frames))
+                index += 1
+        finally:
+            capture.release()
+        if restart_with_fps:
+            # Remove only files generated by this abandoned pass, not arbitrary
+            # contents of the caller's directory. Frame indices restart at zero.
+            for frame in frames:
+                frame["path"].unlink(missing_ok=True)
+            if on_progress:
+                on_progress(0.0, 0)
+            continue
+        if not frames:
+            raise ValueError("No video frames could be decoded. Please try another video.")
+        if index < max(1, int(info["frame_count"] * 0.98)):
+            raise ValueError("The video stopped decoding before its end. Please re-export it as MP4 and try again.")
+        info["decoded_frames"] = index
+        info["decoded_last_timestamp"] = last_timestamp
+        info["sampling_restarted"] = use_fps
+        info["timestamp_source"] = "frame_index_and_fps_fallback" if use_fps else "presentation_timestamps"
+        return info, frames
+    raise RuntimeError("Frame sampling could not establish a consistent time axis.")

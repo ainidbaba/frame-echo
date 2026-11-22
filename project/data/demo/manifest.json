@@ -1,0 +1,12 @@
+{
+  "kind": "synthetic_test_fixture",
+  "description": "Deterministic geometric palette scenes. Not real artwork, personal footage or research evidence.",
+  "duration_seconds": 24,
+  "fps": 12,
+  "codec": "avc1",
+  "query_scene_seconds": [
+    4,
+    8
+  ],
+  "generator": "scripts/create_demo.py"
+}
