@@ -73,4 +73,4 @@ python -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The API tests start a local test server. The repository includes the web interface, server, tests, synthetic fixture and development scripts. Some historical experiment scripts require their original research inputs. The [final process log and reflection (PDF)](../Frame-Echo-Process-Log-Complete.pdf) documents the experiments, results and design decisions.
+The API tests start a local test server. The repository includes the web interface, server, tests, synthetic fixture and development scripts. Some historical experiment scripts require their original research inputs. The [final process log and reflection (PDF)](../Development_Process.pdf) documents the experiments, results and design decisions.
